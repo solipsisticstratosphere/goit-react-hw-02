@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import css from './FriendCard.module.css';
 
-export default function PilotCard({ friend: { avatar, name, isOnline } }) {
+export default function FriendCard({ friend: { avatar, name, isOnline } }) {
   const textClsx = clsx(isOnline ? css.isOnline : css.isOffline);
 
   return (
