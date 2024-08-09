@@ -1,0 +1,42 @@
+.profileWrapper {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+.avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50px;
+  background-color: rgb(41, 21, 21);
+}
+.name {
+  margin: 0px;
+  font-weight: 700;
+}
+.text {
+  margin: 0px;
+  color: grey;
+}
+.info {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(210, 210, 203);
+  margin-bottom: 0px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.cell {
+  border-right: 1.5px solid black;
+  border-top: 1.5px solid black;
+}
+.lastCell {
+  border-top: 1.5px solid black;
+}
+.numbers {
+  font-weight: 700;
+}
