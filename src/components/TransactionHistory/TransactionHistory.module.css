@@ -1,0 +1,25 @@
+.th {
+  border: 1px solid black;
+  padding: 8px;
+  background-color: black;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+
+  color: white;
+}
+.transcations {
+  width: 100%;
+  border-collapse: collapse;
+}
+.transactions tbody tr:nth-child(even) {
+  background-color: #9e9c9c;
+}
+.transactions tbody tr {
+  font-weight: 500;
+}
+.transactions th,
+.transactions td {
+  border: 1px solid black; /* Adjust the border color and style as needed */
+  padding: 8px; /* Optional: Adds padding inside cells */
+}

@@ -1,3 +1,4 @@
+import css from './TransactionLine.module.css';
 export default function TransactionLine({
   transaction: { type, amount, currency },
 }) {

@@ -1,13 +1,13 @@
 import TransactionLine from '../TransactionLine/TransactionLine';
-
+import css from './TransactionHistory.module.css';
 export default function TransactionHistory({ transactions }) {
   return (
-    <table>
+    <table className={css.transactions}>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <th className={css.th}>Type</th>
+          <th className={css.th}>Amount</th>
+          <th className={css.th}>Currency</th>
         </tr>
       </thead>
       <tbody>
