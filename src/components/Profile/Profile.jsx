@@ -9,7 +9,7 @@ export default function Profile({
 }) {
   return (
     <div className={css.profileWrapper}>
-      <div>
+      <div className={css.imgInfo}>
         <img className={css.avatar} src={avatar} alt={username} />
         <p className={css.name}>{username}</p>{' '}
         <p className={css.text}>@{tag}</p>{' '}

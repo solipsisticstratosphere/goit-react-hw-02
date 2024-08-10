@@ -8,35 +8,53 @@
   justify-content: center;
   padding-top: 10px;
 }
+
 .avatar {
   width: 75px;
   height: 75px;
   border-radius: 50px;
   background-color: rgb(41, 21, 21);
 }
+
 .name {
   margin: 0px;
   font-weight: 700;
 }
+
 .text {
   margin: 0px;
   color: grey;
 }
+
 .info {
   display: flex;
-  flex-direction: row;
+  width: 100%;
   background-color: rgb(210, 210, 203);
-  margin-bottom: 0px;
+  margin: 0;
+  padding: 0;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
+
+.cell,
+.lastCell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px 0;
+  border-top: 1.5px solid black;
+  text-align: center;
+}
+
 .cell {
   border-right: 1.5px solid black;
-  border-top: 1.5px solid black;
 }
-.lastCell {
-  border-top: 1.5px solid black;
-}
+
 .numbers {
   font-weight: 700;
+}
+.imgInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
