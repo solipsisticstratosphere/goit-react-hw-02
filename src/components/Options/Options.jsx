@@ -1,29 +1,43 @@
-export default function Options({ totalFeedback, values, setValues }) {
+import { useEffect, useState } from 'react';
+
+export default function Options({ totalFeedback, setValues }) {
+  const [localValues, setLocalValues] = useState(() => {
+    const savedGood = window.localStorage.getItem('saved-good');
+    const savedNeutral = window.localStorage.getItem('saved-neutral');
+    const savedBad = window.localStorage.getItem('saved-bad');
+
+    return {
+      good: savedGood !== null ? Number(savedGood) : 0,
+      neutral: savedNeutral !== null ? Number(savedNeutral) : 0,
+      bad: savedBad !== null ? Number(savedBad) : 0,
+    };
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem('saved-good', localValues.good);
+    window.localStorage.setItem('saved-neutral', localValues.neutral);
+    window.localStorage.setItem('saved-bad', localValues.bad);
+  }, [localValues]);
+
+  useEffect(() => {
+    setValues(localValues);
+  }, [localValues, setValues]);
+
   const updateFeedback = feedbackType => {
-    if (feedbackType == 'good') {
-      setValues({
-        ...values,
-        good: values.good + 1,
-      });
-    } else if (feedbackType == 'neutral') {
-      setValues({
-        ...values,
-        neutral: values.neutral + 1,
-      });
-    } else {
-      setValues({
-        ...values,
-        bad: values.bad + 1,
-      });
-    }
+    setLocalValues(prevValues => ({
+      ...prevValues,
+      [feedbackType]: prevValues[feedbackType] + 1,
+    }));
   };
+
   const resetFeedback = () => {
-    setValues({
+    setLocalValues({
       good: 0,
       neutral: 0,
       bad: 0,
     });
   };
+
   return (
     <div>
       <button onClick={() => updateFeedback('good')}>Good</button>
