@@ -8,17 +8,14 @@ import { useState, useEffect } from 'react';
 import Options from '../Options/Options';
 import FeedBack from '../FeedBack/FeedBack';
 import Notification from '../Notification/Notification';
+import Description from '../Description/Description';
 export default function App() {
-  const [values, setValues] = useState({
-    good: Number(window.localStorage.getItem('saved-good')) || 0,
-    neutral: Number(window.localStorage.getItem('saved-neutral')) || 0,
-    bad: Number(window.localStorage.getItem('saved-bad')) || 0,
+  const [values, setValues] = useState(() => {
+    const savedValues = JSON.parse(window.localStorage.getItem('saved-values'));
+    return savedValues || { good: 0, neutral: 0, bad: 0 };
   });
-
   useEffect(() => {
-    window.localStorage.setItem('saved-good', values.good);
-    window.localStorage.setItem('saved-neutral', values.neutral);
-    window.localStorage.setItem('saved-bad', values.bad);
+    window.localStorage.setItem('saved-values', JSON.stringify(values));
   }, [values]);
 
   const totalFeedback = values.good + values.neutral + values.bad;
@@ -41,11 +38,7 @@ export default function App() {
   };
   return (
     <>
-      <h1>Sip Happens Café</h1>
-      <p>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
+      <Description />
       <Options
         totalFeedback={totalFeedback}
         updateFeedback={updateFeedback}
